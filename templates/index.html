@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Car Price Prediction System</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <link rel="icon"
+      href="https://cdn-icons-png.flaticon.com/512/743/743922.png">
+
+</head>
+
+<body>
+
+    <div class="container">
+
+        <h1>
+            <i class="fas fa-car-side"></i>
+            Car Price Prediction System
+        </h1>
+
+        <p class="subtitle">
+            Used Car Price Prediction using Machine Learning and Flask
+        </p>
+
+        <form action="/predict" method="POST">
+
+    <label>
+        <i class="fas fa-building"></i>
+        Company
+    </label>
+
+    <input
+        type="text"
+        name="company"
+        placeholder="Ex: Maruti"
+        required>
+
+    <label>
+        <i class="fas fa-car"></i>
+        Car Name
+    </label>
+
+    <input
+        type="text"
+        name="name"
+        placeholder="Ex: Maruti Suzuki Swift"
+        required>
+
+    <label>
+        <i class="fas fa-calendar"></i>
+        Year
+    </label>
+
+    <input
+        type="number"
+        name="year"
+        placeholder="Ex: 2019"
+        min="1990"
+        max="2026"
+        required>
+
+    <label>
+        <i class="fas fa-road"></i>
+        KM Driven
+    </label>
+
+    <input
+        type="number"
+        name="kms_driven"
+        placeholder="Ex: 25000"
+        min="0"
+        required>
+
+    <label>
+        <i class="fas fa-gas-pump"></i>
+        Fuel Type
+    </label>
+
+    <select name="fuel_type" required>
+
+        <option value="" selected disabled>
+            Select Fuel Type
+        </option>
+
+        <option value="Petrol">
+            Petrol
+        </option>
+
+        <option value="Diesel">
+            Diesel
+        </option>
+
+        <option value="LPG">
+            LPG
+        </option>
+
+    </select>
+
+    <button type="submit" class="predict-btn">
+
+        <i class="fas fa-chart-line"></i>
+        Predict Price
+
+
+    </button>
+
+
+
+</form>
+
+        {% if prediction_text %}
+
+        <div class="result">
+
+            <h2>Estimated Market Price</h2>
+
+            <p>{{ prediction_text }}</p>
+
+        </div>
+
+        {% endif %}
+
+        <footer>
+
+    <p>
+        Developed by Dhairya Sanathara
+    </p>
+
+    <p>
+        B.Tech Computer Science Engineering
+    </p>
+
+    <p>
+        Python • Pandas • NumPy • Scikit-Learn • Flask
+    </p>
+
+    <p>
+        First End-to-End Machine Learning Deployment Project
+    </p>
+
+    <p>
+        GitHub:
+        <a href="https://github.com/DhairyaSanathara/Car-Price-Predictor_Project-ML_Lr_My-First-Project"
+           target="_blank">
+
+           View Project
+
+        </a>
+    </p>
+
+</footer>
+    </div>
+
+</body>
+
+</html>
